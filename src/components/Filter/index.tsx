@@ -1,7 +1,7 @@
 import { Button, Card, Divider, Stack, TextField } from "@mui/material";
 import BrandCheckboxes from "./BrandCheckboxes";
 import { useUnit } from "effector-react";
-import { $searchTerm, searchProducts, setSearchTerm } from "@/model/Products";
+import { $searchTerm, searchProducts, setSearchTerm } from "../../model/Products";
 
 const Filter = () => {
   const searchTerm = useUnit($searchTerm);
@@ -18,6 +18,7 @@ const Filter = () => {
             <TextField
               label="Search By Product Name"
               size="small"
+              data-testid="searchbar"
               onChange={(e: React.ChangeEvent<any>) => setSearchTerm(e.target.value)}
               value={searchTerm}
             />

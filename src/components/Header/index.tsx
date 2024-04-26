@@ -1,6 +1,7 @@
-import { $categories, selectCategory } from "@/model/Products";
 import { AppBar, Button, Container, Toolbar, Typography } from "@mui/material"
 import { useUnit } from "effector-react";
+
+import { $categories, selectCategory } from "../../model/Products";
 
 const Header = () => {
   const categories = useUnit($categories);
@@ -16,7 +17,7 @@ const Header = () => {
     >
       <Container maxWidth="xl">
         <Toolbar variant="dense" disableGutters>
-          <img src="images/logo.jpg" width="auto" height="45vh" style={{ marginRight: '16px' }}/>
+          <img data-testid="FNSlogo" src="images/logo.jpg" width="auto" height="45vh" style={{ marginRight: '16px' }}/>
           <>
             {categories.map(category => 
               <Button color="primary" size="large" key={`categorybutton-${category}`} onClick={() => selectCategory(category)}>

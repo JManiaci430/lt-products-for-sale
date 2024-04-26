@@ -5,7 +5,7 @@ import { createGate } from 'effector-react';
 import { FilterByBrandsParams as FilterByBrandsParams } from '@/types/FilterByBrandsParams';
 import { FilterByCategoryParams } from '@/types/FilterByCategoryParams';
 
-const productDomain = createDomain();
+export const productDomain = createDomain();
 export const AppGate = createGate();
 
 export const $products = productDomain.store<Product[]>([]);

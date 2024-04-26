@@ -9,7 +9,7 @@ export const GetProducts: () => Promise<Product[]> = async () => {
   return data.products;
 }
 
-export const SearchProducts = async (searchTerm: string) => {
+export const SearchProducts: (searchTerm: string) => Promise<Product[]> = async (searchTerm: string) => {
   var params = `?q=${searchTerm}`;
   const { data } = await axios.get(SEARCH_PRODUCTS + params);
   return data.products;

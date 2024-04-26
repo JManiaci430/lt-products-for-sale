@@ -1,6 +1,6 @@
 import { sample } from "effector";
 
-import { GetProducts, SearchProducts } from "@/services/productService";
+import { GetProducts, SearchProducts } from "../../services/productService";
 
 import { 
   $brands, 
@@ -37,21 +37,24 @@ $products.on([getAllProductsFx.doneData], (_, data) => data);
 $filteredProducts.on([getAllProductsFx.doneData, searchProductsFx.doneData, filterByCategoryFx.doneData, filterByBrandsFx.doneData], (_, data) => data);
 $categories.on(getAllProductsFx.doneData, (_, data) => {
   var categories: string[] = ["All"];
-  data.forEach(product => {
-    var category = product.category.replace('-', ' ');
-    if (!categories.includes(category))
-      categories.push(category);    
-  });
+
+  if (data != undefined)
+    data.forEach(product => {
+      var category = product.category.replace('-', ' ');
+      if (!categories.includes(category))
+        categories.push(category);    
+    });
 
   return categories;
 });
 $brands.on([getAllProductsFx.doneData, filterByCategoryFx.doneData, searchProductsFx.doneData], (_, data) => {
   var brands: string[] = [];
 
-  data.forEach((product: Product) => {
-    if (!brands.includes(product.brand)){
-      brands.push(product.brand);
-    }
+  if (data != undefined)
+    data.forEach((product: Product) => {
+      if (!brands.includes(product.brand)){
+        brands.push(product.brand);
+      }
   });
 
   return brands;
@@ -60,10 +63,11 @@ $brands.on([getAllProductsFx.doneData, filterByCategoryFx.doneData, searchProduc
 $selectedBrands.on([getAllProductsFx.doneData, filterByCategoryFx.doneData, searchProductsFx.doneData], (_, data) => {
   var brands: string[] = [];
 
-  data.forEach((product: Product) => {
-    if (!brands.includes(product.brand)){
-      brands.push(product.brand);
-    }
+  if (data != undefined)
+    data.forEach((product: Product) => {
+      if (!brands.includes(product.brand)){
+        brands.push(product.brand);
+      }
   });
 
   return brands;

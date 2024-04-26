@@ -1,7 +1,7 @@
 import { Card, CircularProgress, Grid, Typography } from "@mui/material";
 import { useUnit } from "effector-react";
 
-import { $filteredProducts, $isProductsLoading } from "@/model/Products";
+import { $filteredProducts, $isProductsLoading } from "../../model/Products";
 import ProductCard from "./ProductCard";
 
 const ProductsPane = () => {
@@ -11,7 +11,7 @@ const ProductsPane = () => {
   return (
     <Card style={{ height: '100%', width: '100%', overflowY: 'auto', textAlign: 'center' }}>
       {isProductsLoading && (
-        <CircularProgress size='4rem' />
+        <CircularProgress data-testid='loadingInd' size='4rem' />
       )}
       {!isProductsLoading && products.length === 0 && (
         <Card style={{ width: '90%', height: '95%', textAlign: 'center', margin: 'auto', marginTop: '16px' }}>

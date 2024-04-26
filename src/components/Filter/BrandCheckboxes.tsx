@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, FormGroup, Typography } from "@mui/material";
 import { useUnit } from "effector-react";
 
-import { $brands, $selectedBrands, updateBrands } from "@/model/Products";
+import { $brands, $selectedBrands, updateBrands } from "../../model/Products";
 
 const BrandCheckboxes = () => {
   const brands = useUnit($brands);
@@ -13,9 +13,9 @@ const BrandCheckboxes = () => {
       <FormGroup style={{ marginTop: 0, paddingLeft: '32px'}}>
         {brands.map(brand => (
           <FormControlLabel 
-            key={`checkbox-${brand}`} 
+            key={`checkbox-${brand}`}
             control={
-              <Checkbox size="small" checked={selectedBrands.includes(brand)} onChange={() => updateBrands(brand)}/>
+              <Checkbox size="small" checked={selectedBrands.includes(brand)} data-testid={`checkbox-${brand}`} onChange={() => updateBrands(brand)}/>
             } 
             label={brand} 
           />
