@@ -4,7 +4,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This is a React.js/Typescript for displaying products for sale.
 
 State Management: [effector] (https://effector.dev)
+
 Http Client: [axios] (https://axios-http.com/docs/intro)
+
 Testing: [jest] (https://jestjs.io/)
 
 ## Launching the Application
